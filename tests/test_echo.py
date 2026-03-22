@@ -1,8 +1,6 @@
 from api_client import APIClient
 from helpers import check_status_code, check_json_data
 
-invalid_body_data = {"card_name": "T", "balance": 10}
-
 def test_get_request(get_base_url):
     client = APIClient()
     response = client.send_get()
@@ -32,7 +30,7 @@ def test_post_request_with_params_body(get_valid_params, get_valid_body_data, ge
     check_status_code(response, 200)
     expected_args = {key: str(value) for key, value in params.items()}
     check_json_data(response.json()["args"], expected_args)
-    check_json_data(response.json()["data"], invalid_body_data)
+    check_json_data(response.json()["data"], body_data)
     check_json_data(response.json()["headers"]["content-type"], headers_data["Content-Type"])
 
 def test_delete_request_send_post():
