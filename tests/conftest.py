@@ -1,4 +1,3 @@
-import os
 import pytest
 
 base_url = "https://postman-echo.com"
