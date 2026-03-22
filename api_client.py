@@ -1,6 +1,4 @@
 import requests
-
-
 class APIClient:
     base_url = "https://postman-echo.com"
 
